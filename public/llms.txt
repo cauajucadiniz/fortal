@@ -1,0 +1,19 @@
+# Fortal Auto
+
+> Loja de veículos seminovos em Fortaleza - CE. Compra, venda e troca de carros revisados, com procedência e garantia.
+
+A Fortal Auto atua desde 2022 no mercado de seminovos em Fortaleza, oferecendo atendimento humanizado, transparência e veículos inspecionados.
+
+## Pages
+
+- [Início](/): Apresentação da loja, destaques do estoque e canais de contato.
+- [Veículos](/veiculos): Estoque atualizado de seminovos com fotos, preços, quilometragem e botão direto para WhatsApp.
+- [Sobre](/sobre): História da Fortal Auto, valores, equipe e localização.
+- [Contato](/contato): Telefones, WhatsApp dos consultores Mateus e Igor, horário de funcionamento e endereço.
+
+## Contato
+
+- WhatsApp Mateus Perdigão: +55 85 99830-8911
+- WhatsApp Igor Freitas: +55 85 99988-5601
+- Endereço: Av. José Bastos, 2630 B, Fortaleza - CE
+- Instagram: https://instagram.com/fortal_auto
