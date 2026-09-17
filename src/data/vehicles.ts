@@ -1,3 +1,5 @@
+import spinLt182013Image from "@/assets/spin-lt-18-2013.jpeg";
+import prismaLt142015Image from "@/assets/prisma-lt-14-2015.jpeg";
 import kicksActive2021Image from "@/assets/kicks-active-2021.jpg";
 import hondaCityDx2011Image from "@/assets/honda-city-dx-2011.jpg";
 import argoDrive2025Image from "@/assets/argo-drive-2025.jpeg";
@@ -84,6 +86,51 @@ export interface Vehicle {
 }
 
 const allVehicles: Vehicle[] = [
+  {
+    id: "spin-lt-18-2013",
+    status: "active",
+    image: spinLt182013Image,
+    brand: "Chevrolet",
+    model: "Spin LT",
+    year: "2013",
+    price: "R$ 44.900,00",
+    km: "96.000",
+    transmission: "Manual",
+    engine: "1.8 Flex",
+    whatsapp: "5585998308911",
+    highlights: [
+      "05 Lugares",
+      "04 Pneus novos",
+      "Toda revisada",
+      "Carro muito conservado",
+      "Amplo espaço interno",
+      "Garantia 90 dias",
+      "Avalio carro ou moto de entrada",
+      "Aceito financiamento",
+      "Parcelamento no cartão em até 18x"
+    ],
+  },
+  {
+    id: "prisma-lt-14-2015",
+    status: "active",
+    image: prismaLt142015Image,
+    brand: "Chevrolet",
+    model: "Prisma LT",
+    year: "2015",
+    price: "R$ 53.900,00",
+    km: "79.000",
+    transmission: "Manual",
+    engine: "1.4 Flex",
+    whatsapp: "5585998308911",
+    highlights: [
+      "Completo",
+      "Som de fábrica",
+      "Manual e chave reserva",
+      "Garantia 03 meses",
+      "Avalio carro e moto de entrada",
+      "Aceito financiamento"
+    ],
+  },
   {
     id: "kicks-active-2021",
     status: "sold",
@@ -189,6 +236,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "corolla-xei-2017-white",
+    status: "sold",
     image: corollaXei2017Image,
     brand: "Toyota",
     model: "Corolla XEi",
@@ -216,6 +264,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "hb20-1-0-2019",
+    status: "sold",
     image: hb202019Image,
     brand: "Hyundai",
     model: "HB20",
@@ -633,6 +682,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "sandero-stepway-2025",
+    status: "sold",
     image: sanderoStepway2025Image,
     brand: "Renault",
     model: "Sandero Stepway",
