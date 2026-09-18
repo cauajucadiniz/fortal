@@ -1,68 +1,17 @@
-import spinLt182013Image from "@/assets/spin-lt-18-2013.jpeg";
-import prismaLt142015Image from "@/assets/prisma-lt-14-2015.jpeg";
-import kicksActive2021Image from "@/assets/kicks-active-2021.jpg";
-import hondaCityDx2011Image from "@/assets/honda-city-dx-2011.jpg";
-import argoDrive2025Image from "@/assets/argo-drive-2025.jpeg";
-import corollaXei2015Image from "@/assets/corolla-xei-2015.jpeg";
-import corollaXei2017Image from "@/assets/corolla-xei-2017.jpeg";
-import hb202019Image from "@/assets/hb20-2019.jpeg";
-import golTrendline2017BlackImage from "@/assets/gol-trendline-2017-black.jpeg";
-import bmw320iGpSport2022Image from "@/assets/bmw-320i-gp-sport-2022.jpg";
-import hb20Sense2021Image from "@/assets/hb20-sense-2021.jpg";
-import argo102019Image from "@/assets/argo-1-0-2019.jpg";
-import onixLtz2018Image from "@/assets/onix-ltz-2018.jpg";
-import golG72023Image from "@/assets/gol-g7-2023.jpg";
-import mobiLike2028Image from "@/assets/mobi-like-2028.jpg";
-import corollaXei2019Image from "@/assets/corolla-xei-2019.jpg";
-import tcrossComfortline2026Image from "@/assets/tcross-comfortline-2026.jpg";
-import renegadeLongitude2024Image from "@/assets/renegade-longitude-2024.jpg";
-import stradaAdventure2015Image from "@/assets/strada-adventure-2015.jpg";
-import civicLxr2015Image from "@/assets/civic-lxr-2015.jpg";
-import civicEx2018Image from "@/assets/civic-ex-2018.jpg";
-import hiluxSw4Srx2017Image from "@/assets/hilux-sw4-srx-2017.jpg";
-import jimnySport2016Image from "@/assets/jimny-sport-2016.jpg";
-import sanderoStepway2025Image from "@/assets/sandero-stepway-2025.jpg";
-import golTrendline2017Image from "@/assets/gol-trendline-2017.jpg";
-import hb20Platinum2022Image from "@/assets/hb20-platinum-2022.jpg";
-import argoDrive2022Image from "@/assets/argo-drive-2022.jpg";
-import renegadeLongitude2023Image from "@/assets/renegade-longitude-2023.jpg";
-import nivus2021Image from "@/assets/nivus-2021.jpg";
-import civicEx2020Image from "@/assets/civic-ex-2020.jpg";
-import grandSienaAttractive2013Image from "@/assets/grand-siena-attractive-2013.jpg";
-import onixTurbo2020Image from "@/assets/onix-turbo-2020.jpg";
-import mobi2021Image from "@/assets/mobi-2021.jpg";
-import versaUnique2016Image from "@/assets/versa-unique-2016.jpg";
-import nissanKicksActiveImage from "@/assets/nissan-kicks-active.jpg";
-import corollaXei2016Image from "@/assets/corolla-xei-2016.jpg";
-import hrv2021Image from "@/assets/hrv-2021.jpg";
-import comingSoonImage from "@/assets/coming-soon.svg";
-import pajeroTr42015Image from "@/assets/pajero-tr4-2015.jpg";
-import nissanMarchImage from "@/assets/nissan-march.jpg";
-import grandSienaAttractiveImage from "@/assets/grand-siena-attractive.jpg";
-import corollaGli2016Image from "@/assets/corolla-gli-2016.jpg";
-import stradaFreedom2023Image from "@/assets/strada-freedom-2023.jpg";
-import fordKaSedan2017Image from "@/assets/ford-ka-sedan-2017.jpg";
-import fiatPulseImpetus2022Image from "@/assets/fiat-pulse-impetus-2022.jpg";
-import civicLxr2016Image from "@/assets/civic-lxr-2016.jpg";
-import hyundaiHb20sLimitedImage from "@/assets/hyundai-hb20s-limited.jpg";
-import virtusComfortlineImage from "@/assets/virtus-comfortline.jpg";
-import civicExlImage from "@/assets/civic-exl.jpg";
-import poloComfortlineImage from "@/assets/polo-comfortline.jpg";
-import poloHighlineImage from "@/assets/polo-highline.jpg";
-import grandVitaraPremiumImage from "@/assets/grand-vitara-premium.jpg";
-import capturIntenseImage from "@/assets/captur-intense.jpg";
-import rangerLimitedImage from "@/assets/ranger-limited.png";
 
 
 
-// Arquivo (vendidos) - mantidos apenas para referência interna
-
-// Arquivo histórico (vendidos)
-
+// Arquivo histórico (vendidos) - mantidos apenas para referência interna
 
 const images = import.meta.glob('/src/assets/*.{png,jpg,jpeg,svg,webp}', { eager: true, import: 'default' });
 
-
+export const getVehicleImage = (filename: string) => {
+  const path = `/src/assets/${filename}`;
+  if (images[path]) return images[path] as string;
+  const lower = `/src/assets/${filename.toLowerCase()}`;
+  if (images[lower]) return images[lower] as string;
+  return "/placeholder.svg";
+};
 
 export type VehicleStatus = "active" | "sold";
 
@@ -87,9 +36,86 @@ export interface Vehicle {
 
 const allVehicles: Vehicle[] = [
   {
+    id: "asx-20-awd-2020",
+    status: "active",
+    image: getVehicleImage("ASX 2.0 AWD 2020.jpeg"),
+    brand: "Mitsubishi",
+    model: "ASX 2.0 AWD",
+    year: "2020",
+    price: "R$ 99.900,00",
+    km: "68.000",
+    transmission: "Automático",
+    engine: "2.0",
+    traction: "4x4 (AWD)",
+    whatsapp: "5585998308911",
+    highlights: [
+      "Tração 4x4",
+      "Bancos de couro",
+      "68.000 km rodados",
+      "Direção elétrica",
+      "Kit multimídia",
+      "Volante multifuncional",
+      "Computador de bordo",
+      "Manual de revisão e chave reserva",
+      "Garantia 03 meses",
+      "Avalio carro ou moto de entrada",
+      "Aceito financiamento"
+    ],
+  },
+  {
+    id: "polo-10-track-2025",
+    status: "active",
+    image: getVehicleImage("POLO 1.0 TRACK 2025.jpeg"),
+    brand: "Volkswagen",
+    model: "Polo Track 1.0",
+    year: "2025",
+    price: "R$ 73.900,00",
+    km: "59.000",
+    transmission: "Manual",
+    engine: "1.0",
+    whatsapp: "5585998308911",
+    highlights: [
+      "Ano 2025",
+      "Apenas 59.000 km",
+      "Direção elétrica",
+      "Som original de fábrica",
+      "Volante multifuncional",
+      "Computador de bordo",
+      "Manual de revisão e chave reserva",
+      "Garantia 03 meses",
+      "Avalio carro ou moto de entrada",
+      "Aceito financiamento"
+    ],
+  },
+  {
+    id: "polo-msi-16-2018",
+    status: "active",
+    image: getVehicleImage("POLO MSI 1.6 2018.jpeg"),
+    brand: "Volkswagen",
+    model: "Polo MSI 1.6",
+    year: "2018",
+    price: "R$ 64.900,00",
+    km: "89.000",
+    transmission: "Manual",
+    engine: "1.6",
+    whatsapp: "5585998308911",
+    highlights: [
+      "Ano 2018",
+      "89.000 km",
+      "Direção elétrica",
+      "Multimídia de fábrica",
+      "Volante multifuncional",
+      "Computador de bordo",
+      "Manual de revisão e chave reserva",
+      "Garantia 03 meses",
+      "Avalio carro ou moto de entrada",
+      "Aceito financiamento"
+    ],
+  },
+  {
     id: "spin-lt-18-2013",
     status: "active",
-    image: spinLt182013Image,
+    image: getVehicleImage("spin-lt-18-2013.jpeg"),
     brand: "Chevrolet",
     model: "Spin LT",
     year: "2013",
@@ -113,7 +139,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "prisma-lt-14-2015",
     status: "active",
-    image: prismaLt142015Image,
+    image: getVehicleImage("prisma-lt-14-2015.jpeg"),
     brand: "Chevrolet",
     model: "Prisma LT",
     year: "2015",
@@ -134,7 +160,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "kicks-active-2021",
     status: "sold",
-    image: kicksActive2021Image,
+    image: getVehicleImage("kicks-active-2021.jpg"),
     brand: "Nissan",
     model: "Kicks Active CVT",
     year: "2021",
@@ -161,7 +187,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "honda-city-dx-2011",
     status: "sold",
-    image: hondaCityDx2011Image,
+    image: getVehicleImage("honda-city-dx-2011.jpg"),
     brand: "Honda",
     model: "City DX 1.5",
     year: "2011",
@@ -187,7 +213,7 @@ const allVehicles: Vehicle[] = [
 
   {
     id: "argo-drive-2025",
-    image: argoDrive2025Image,
+    image: getVehicleImage("argo-drive-2025.jpeg"),
     brand: "Fiat",
     model: "Argo Drive",
     year: "2025",
@@ -209,7 +235,8 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "corolla-xei-2015-silver",
-    image: corollaXei2015Image,
+    status: "sold",
+    image: getVehicleImage("corolla-xei-2015.jpeg"),
     brand: "Toyota",
     model: "Corolla XEi",
     year: "2015",
@@ -237,7 +264,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "corolla-xei-2017-white",
     status: "sold",
-    image: corollaXei2017Image,
+    image: getVehicleImage("corolla-xei-2017.jpeg"),
     brand: "Toyota",
     model: "Corolla XEi",
     year: "2017",
@@ -265,7 +292,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "hb20-1-0-2019",
     status: "sold",
-    image: hb202019Image,
+    image: getVehicleImage("hb20-2019.jpeg"),
     brand: "Hyundai",
     model: "HB20",
     year: "2019",
@@ -290,7 +317,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "gol-trendline-2017-black",
-    image: golTrendline2017BlackImage,
+    image: getVehicleImage("gol-trendline-2017-black.jpeg"),
     brand: "Volkswagen",
     model: "Gol Trendline",
     year: "2017",
@@ -313,7 +340,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "bmw-320i-gp-sport-2022",
-    image: bmw320iGpSport2022Image,
+    image: getVehicleImage("bmw-320i-gp-sport-2022.jpg"),
     brand: "BMW",
     model: "320i GP Sport 2.0 Turbo",
     year: "2022",
@@ -351,7 +378,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "hb20-sense-2021",
     status: "sold",
-    image: hb20Sense2021Image,
+    image: getVehicleImage("hb20-sense-2021.jpg"),
     brand: "Hyundai",
     model: "HB20 Sense 1.0",
     year: "2021",
@@ -376,7 +403,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "argo-1-0-2019",
     status: "sold",
-    image: argo102019Image,
+    image: getVehicleImage("argo-1-0-2019.jpg"),
     brand: "Fiat",
     model: "Argo 1.0",
     year: "2019",
@@ -399,7 +426,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "onix-ltz-2018",
-    image: onixLtz2018Image,
+    image: getVehicleImage("onix-ltz-2018.jpg"),
     brand: "Chevrolet",
     model: "Onix 1.4 LTZ",
     year: "2018",
@@ -426,7 +453,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "gol-g7-2023",
-    image: golG72023Image,
+    image: getVehicleImage("gol-g7-2023.jpg"),
     brand: "Volkswagen",
     model: "Gol G7 1.0",
     year: "2023",
@@ -446,7 +473,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "mobi-like-2028",
-    image: mobiLike2028Image,
+    image: getVehicleImage("mobi-like-2028.jpg"),
     brand: "Fiat",
     model: "Mobi Like 1.0",
     year: "2028",
@@ -470,7 +497,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "corolla-xei-2019",
-    image: corollaXei2019Image,
+    image: getVehicleImage("corolla-xei-2019.jpg"),
     brand: "Toyota",
     model: "Corolla XEi 2.0",
     year: "2019",
@@ -496,7 +523,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "tcross-comfortline-2026",
-    image: tcrossComfortline2026Image,
+    image: getVehicleImage("tcross-comfortline-2026.jpg"),
     brand: "Volkswagen",
     model: "T-Cross Comfortline 200 TSI",
     year: "2026",
@@ -524,7 +551,8 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "renegade-longitude-t270-2024",
-    image: renegadeLongitude2024Image,
+    status: "sold",
+    image: getVehicleImage("renegade-longitude-2024.jpg"),
     brand: "Jeep",
     model: "Renegade Longitude T270 1.3 Turbo",
     year: "2024",
@@ -551,7 +579,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "strada-adventure-2015",
     status: "sold",
-    image: stradaAdventure2015Image,
+    image: getVehicleImage("strada-adventure-2015.jpg"),
     brand: "Fiat",
     model: "Strada CD Adventure 1.8",
     year: "2015",
@@ -577,7 +605,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "civic-lxr-2015",
     status: "sold",
-    image: civicLxr2015Image,
+    image: getVehicleImage("civic-lxr-2015.jpg"),
     brand: "Honda",
     model: "Civic LXR 2.0",
     year: "2015",
@@ -596,7 +624,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "civic-ex-2018",
     status: "sold",
-    image: civicEx2018Image,
+    image: getVehicleImage("civic-ex-2018.jpg"),
     brand: "Honda",
     model: "Civic EX 2.0 CVT",
     year: "2018",
@@ -629,7 +657,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "hilux-sw4-srx-2017",
     status: "sold",
-    image: hiluxSw4Srx2017Image,
+    image: getVehicleImage("hilux-sw4-srx-2017.jpg"),
     brand: "Toyota",
     model: "Hilux SW4 SRX 2.8 Turbo Diesel 4x4",
     year: "2017",
@@ -660,7 +688,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "jimny-sport-2016",
-    image: jimnySport2016Image,
+    image: getVehicleImage("jimny-sport-2016.jpg"),
     brand: "Suzuki",
     model: "Jimny Sport 4x4",
     year: "2016",
@@ -683,7 +711,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "sandero-stepway-2025",
     status: "sold",
-    image: sanderoStepway2025Image,
+    image: getVehicleImage("sandero-stepway-2025.jpg"),
     brand: "Renault",
     model: "Sandero Stepway",
     year: "2025",
@@ -708,7 +736,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "gol-trendline-2017",
-    image: golTrendline2017Image,
+    image: getVehicleImage("gol-trendline-2017.jpg"),
     brand: "Volkswagen",
     model: "Gol Trendline",
     year: "2017",
@@ -732,7 +760,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "hb20-platinum-2022",
     status: "sold",
-    image: hb20Platinum2022Image,
+    image: getVehicleImage("hb20-platinum-2022.jpg"),
     brand: "Hyundai",
     model: "HB20 Platinum 1.0 Turbo",
     year: "2022",
@@ -746,7 +774,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "argo-drive-2022",
     status: "sold",
-    image: argoDrive2022Image,
+    image: getVehicleImage("argo-drive-2022.jpg"),
     brand: "Fiat",
     model: "Argo Drive 1.0",
     year: "2022",
@@ -759,7 +787,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "renegade-longitude-t270-2023",
     status: "sold",
-    image: renegadeLongitude2023Image,
+    image: getVehicleImage("renegade-longitude-2023.jpg"),
     brand: "Jeep",
     model: "Renegade Longitude T270 1.3 Turbo",
     year: "2023",
@@ -773,7 +801,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "nivus-highline-2021",
     status: "sold",
-    image: nivus2021Image,
+    image: getVehicleImage("nivus-2021.jpg"),
     brand: "Volkswagen",
     model: "Nivus Highline 1.0 TSI",
     year: "2021",
@@ -787,7 +815,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "civic-ex-2020",
     status: "sold",
-    image: civicEx2020Image,
+    image: getVehicleImage("civic-ex-2020.jpg"),
     brand: "Honda",
     model: "Civic EX 2.0",
     year: "2020",
@@ -808,7 +836,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "grand-siena-attractive-2013",
     status: "sold",
-    image: grandSienaAttractive2013Image,
+    image: getVehicleImage("grand-siena-attractive-2013.jpg"),
     brand: "Fiat",
     model: "Grand Siena Attractive 1.4",
     year: "2013",
@@ -827,7 +855,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "onix-turbo-2020",
     status: "sold",
-    image: onixTurbo2020Image,
+    image: getVehicleImage("onix-turbo-2020.jpg"),
     brand: "Chevrolet",
     model: "Onix 1.0 Turbo",
     year: "2020",
@@ -848,7 +876,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "mobi-like-2025",
     status: "sold",
-    image: mobi2021Image,
+    image: getVehicleImage("mobi-2021.jpg"),
     brand: "Fiat",
     model: "Mobi Like 1.0",
     year: "2025",
@@ -865,7 +893,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "versa-unique-2016",
     status: "sold",
-    image: versaUnique2016Image,
+    image: getVehicleImage("versa-unique-2016.jpg"),
     brand: "Nissan",
     model: "Versa Unique 1.6",
     year: "2016",
@@ -889,7 +917,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "nissan-kicks-active-2022",
     status: "sold",
-    image: nissanKicksActiveImage,
+    image: getVehicleImage("nissan-kicks-active.jpg"),
     brand: "Nissan",
     model: "Kicks Active CVT",
     year: "2022",
@@ -912,7 +940,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "corolla-xei-2016",
     status: "sold",
-    image: corollaXei2016Image,
+    image: getVehicleImage("corolla-xei-2016.jpg"),
     brand: "Toyota",
     model: "Corolla XEI",
     year: "2016",
@@ -937,7 +965,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "hrv-2021",
     status: "sold",
-    image: hrv2021Image,
+    image: getVehicleImage("hrv-2021.jpg"),
     brand: "Honda",
     model: "HR-V 1.8 Flex Aut",
     year: "2021",
@@ -962,7 +990,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "civic-sport-2019",
     status: "sold",
-    image: comingSoonImage,
+    image: getVehicleImage("coming-soon.svg"),
     brand: "Honda",
     model: "Civic Sport 2.0",
     year: "2019",
@@ -984,7 +1012,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "gol-trendline-2017",
     status: "sold",
-    image: golTrendline2017Image,
+    image: getVehicleImage("gol-trendline-2017.jpg"),
     brand: "Volkswagen",
     model: "Gol Trendline 1.6",
     year: "2017",
@@ -1006,7 +1034,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "pajero-tr4-2015",
     status: "sold",
-    image: pajeroTr42015Image,
+    image: getVehicleImage("pajero-tr4-2015.jpg"),
     brand: "Mitsubishi",
     model: "Pajero TR4",
     year: "2015",
@@ -1028,7 +1056,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "nissan-march-2017",
     status: "sold",
-    image: nissanMarchImage,
+    image: getVehicleImage("nissan-march.jpg"),
     brand: "Nissan",
     model: "March",
     year: "2017",
@@ -1049,7 +1077,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "grand-siena-attractive-2016",
     status: "sold",
-    image: grandSienaAttractiveImage,
+    image: getVehicleImage("grand-siena-attractive.jpg"),
     brand: "Fiat",
     model: "Grand Siena Attractive 1.4",
     year: "2016",
@@ -1073,7 +1101,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "corolla-gli-2016",
     status: "sold",
-    image: corollaGli2016Image,
+    image: getVehicleImage("corolla-gli-2016.jpg"),
     brand: "Toyota",
     model: "Corolla GLI",
     year: "2016",
@@ -1097,7 +1125,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "strada-freedom-2023",
     status: "sold",
-    image: stradaFreedom2023Image,
+    image: getVehicleImage("strada-freedom-2023.jpg"),
     brand: "Fiat",
     model: "Strada Freedom",
     year: "2023",
@@ -1126,7 +1154,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "ford-ka-sedan-2017",
     status: "sold",
-    image: fordKaSedan2017Image,
+    image: getVehicleImage("ford-ka-sedan-2017.jpg"),
     brand: "Ford",
     model: "Ka Sedan 1.5",
     year: "2017",
@@ -1147,7 +1175,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "fiat-pulse-impetus-2022",
     status: "sold",
-    image: fiatPulseImpetus2022Image,
+    image: getVehicleImage("fiat-pulse-impetus-2022.jpg"),
     brand: "Fiat",
     model: "Pulse Impetus",
     year: "2022",
@@ -1169,7 +1197,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "civic-lxr-2016",
     status: "sold",
-    image: civicLxr2016Image,
+    image: getVehicleImage("civic-lxr-2016.jpg"),
     brand: "Honda",
     model: "Civic LXR",
     year: "2016",
@@ -1193,7 +1221,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "hb20s-limited-2024",
     status: "sold",
-    image: hyundaiHb20sLimitedImage,
+    image: getVehicleImage("hyundai-hb20s-limited.jpg"),
     brand: "Hyundai",
     model: "HB20S Limited",
     year: "2024",
@@ -1223,7 +1251,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "virtus-comfortline-2020",
     status: "sold",
-    image: virtusComfortlineImage,
+    image: getVehicleImage("virtus-comfortline.jpg"),
     brand: "Volkswagen",
     model: "Virtus Comfortline",
     year: "2020",
@@ -1250,7 +1278,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "civic-exl-2021",
     status: "sold",
-    image: civicExlImage,
+    image: getVehicleImage("civic-exl.jpg"),
     brand: "Honda",
     model: "Civic EXL",
     year: "2021",
@@ -1267,7 +1295,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "polo-comfortline-2018",
     status: "sold",
-    image: poloComfortlineImage,
+    image: getVehicleImage("polo-comfortline.jpg"),
     brand: "Volkswagen",
     model: "Polo Comfortline",
     year: "2018",
@@ -1286,7 +1314,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "polo-highline-2020",
     status: "sold",
-    image: poloHighlineImage,
+    image: getVehicleImage("polo-highline.jpg"),
     brand: "Volkswagen",
     model: "Polo Highline",
     year: "2020",
@@ -1309,7 +1337,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "grand-vitara-premium-2016",
     status: "sold",
-    image: grandVitaraPremiumImage,
+    image: getVehicleImage("grand-vitara-premium.jpg"),
     brand: "Suzuki",
     model: "Grand Vitara Premium",
     year: "2016",
@@ -1337,7 +1365,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "civic-exl-2017",
     status: "sold",
-    image: civicExlImage,
+    image: getVehicleImage("civic-exl.jpg"),
     brand: "Honda",
     model: "Civic EXL",
     year: "2017",
@@ -1358,7 +1386,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "captur-intense-2021",
     status: "sold",
-    image: capturIntenseImage,
+    image: getVehicleImage("captur-intense.jpg"),
     brand: "Renault",
     model: "Captur Intense",
     year: "2021",
@@ -1383,7 +1411,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "ranger-limited-2019",
     status: "sold",
-    image: rangerLimitedImage,
+    image: getVehicleImage("ranger-limited.png"),
     brand: "Ford",
     model: "Ranger Limited",
     year: "2019",
