@@ -8,7 +8,7 @@ import VehicleCardDetailed from "@/components/VehicleCardDetailed";
 import SEO from "@/components/SEO";
 import TrustBadge from "@/components/TrustBadge";
 import SectionTitle from "@/components/SectionTitle";
-import heroBanner from "@/assets/hero-banner.png";
+import heroBanner from "@/assets/frente-loja.png";
 import { useVehicleStock } from "@/hooks/useVehicleStock";
 import { trackLead } from "@/lib/trackLead";
 

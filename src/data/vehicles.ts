@@ -38,7 +38,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "asx-20-awd-2020",
     status: "active",
-    image: getVehicleImage("ASX 2.0 AWD 2020.jpeg"),
+    image: getVehicleImage("asx-20-awd-2020.jpeg"),
     brand: "Mitsubishi",
     model: "ASX 2.0 AWD",
     year: "2020",
@@ -65,7 +65,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "polo-10-track-2025",
     status: "active",
-    image: getVehicleImage("POLO 1.0 TRACK 2025.jpeg"),
+    image: getVehicleImage("polo-10-track-2025.jpeg"),
     brand: "Volkswagen",
     model: "Polo Track 1.0",
     year: "2025",
@@ -90,7 +90,7 @@ const allVehicles: Vehicle[] = [
   {
     id: "polo-msi-16-2018",
     status: "active",
-    image: getVehicleImage("POLO MSI 1.6 2018.jpeg"),
+    image: getVehicleImage("polo-msi-16-2018.jpeg"),
     brand: "Volkswagen",
     model: "Polo MSI 1.6",
     year: "2018",
