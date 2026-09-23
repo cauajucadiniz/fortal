@@ -10,12 +10,13 @@ import TrustBadge from "@/components/TrustBadge";
 import SectionTitle from "@/components/SectionTitle";
 import heroBanner from "@/assets/frente-loja.png";
 import { useVehicleStock } from "@/hooks/useVehicleStock";
+import { vehicles as staticVehicles } from "@/data/vehicles";
 import { trackLead } from "@/lib/trackLead";
 
 const Index = () => {
   const whatsappLink = "https://wa.me/5585998308911?text=Olá! Estou vindo pelo site da Fortal Auto e gostaria de mais informações.";
 
-  const { data: vehicles = [], isLoading: isLoadingVehicles } = useVehicleStock();
+  const { data: vehicles = staticVehicles, isLoading: isLoadingVehicles } = useVehicleStock();
   const featuredVehicles = vehicles.slice(0, 3);
 
   const trustItems = [

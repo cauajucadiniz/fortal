@@ -262,9 +262,9 @@ const allVehicles: Vehicle[] = [
     ],
   },
   {
-    id: "corolla-xei-2017-white",
+    id: "corolla-xei-2017-black",
     status: "sold",
-    image: getVehicleImage("corolla-xei-2017.jpeg"),
+    image: getVehicleImage("corolla-xei-2019.jpg"),
     brand: "Toyota",
     model: "Corolla XEi",
     year: "2017",
@@ -497,7 +497,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "corolla-xei-2019",
-    image: getVehicleImage("corolla-xei-2019.jpg"),
+    image: getVehicleImage("corolla-xei-2017.jpeg"),
     brand: "Toyota",
     model: "Corolla XEi 2.0",
     year: "2019",
