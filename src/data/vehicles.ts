@@ -3,13 +3,19 @@
 
 // Arquivo histórico (vendidos) - mantidos apenas para referência interna
 
-const images = import.meta.glob('/src/assets/*.{png,jpg,jpeg,svg,webp}', { eager: true, import: 'default' });
+const images = import.meta.glob(['/src/assets/*.{png,jpg,jpeg,svg,webp}', '/src/assets/images/*.{png,jpg,jpeg,svg,webp}'], { eager: true, import: 'default' });
 
 export const getVehicleImage = (filename: string) => {
-  const path = `/src/assets/${filename}`;
-  if (images[path]) return images[path] as string;
+  const directPath = `/src/assets/${filename}`;
+  if (images[directPath]) return images[directPath] as string;
+  const inImagesPath = `/src/assets/images/${filename}`;
+  if (images[inImagesPath]) return images[inImagesPath] as string;
+
   const lower = `/src/assets/${filename.toLowerCase()}`;
   if (images[lower]) return images[lower] as string;
+  const inImagesLower = `/src/assets/images/${filename.toLowerCase()}`;
+  if (images[inImagesLower]) return images[inImagesLower] as string;
+
   return "/placeholder.svg";
 };
 
@@ -35,6 +41,33 @@ export interface Vehicle {
 }
 
 const allVehicles: Vehicle[] = [
+  {
+    id: "kwid-zen-2025",
+    status: "active",
+    image: getVehicleImage("Kwid 2025.jpeg"),
+    brand: "Renault",
+    model: "Kwid Zen 1.0",
+    year: "2025",
+    price: "R$ 59.990,00",
+    km: "30.000",
+    transmission: "Manual",
+    engine: "1.0",
+    color: "Prata",
+    whatsapp: "5585998308911",
+    highlights: [
+      "30.000 km rodados",
+      "Único dono",
+      "Manual e chave reserva",
+      "Completo",
+      "Motor 1.0",
+      "Revisado",
+      "Garantia 90 dias",
+      "Avalio carro ou moto de entrada",
+      "Aceito financiamento",
+      "Aceito carta de crédito (consórcio)",
+      "Aceito cartão de crédito (em até 18x)",
+    ],
+  },
   {
     id: "denza-b5-gs",
     status: "active",
