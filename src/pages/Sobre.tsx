@@ -5,6 +5,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import SectionTitle from "@/components/SectionTitle";
 import SEO from "@/components/SEO";
 import Logo from "@/components/Logo";
+import mateusImg from "@/assets/Mateus.jpg";
+import igorImg from "@/assets/Igor.jpg";
+import { trackLead } from "@/lib/trackLead";
 
 const Sobre = () => {
   const values = [
@@ -86,11 +89,11 @@ const Sobre = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 mt-8">
                 <div className="text-center p-4 rounded-xl bg-secondary/50 border border-border/30">
-                  <p className="font-heading font-bold text-2xl text-primary">285+</p>
+                  <p className="font-heading font-bold text-2xl text-primary">350+</p>
                   <p className="text-muted-foreground text-sm">Veículos vendidos</p>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-secondary/50 border border-border/30">
-                  <p className="font-heading font-bold text-2xl text-primary">5.2K</p>
+                  <p className="font-heading font-bold text-2xl text-primary">5.5k+</p>
                   <p className="text-muted-foreground text-sm">Seguidores</p>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-secondary/50 border border-border/30">
@@ -171,38 +174,46 @@ const Sobre = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div className="p-8 rounded-2xl bg-card border border-border/50 text-center">
-              <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden border-2 border-primary/20">
-                <img src="/mateus-perdigao.jpg" alt="Mateus Perdigão" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.removeAttribute('style'); }} />
-                <Users className="w-10 h-10 text-primary" style={{ display: 'none' }} />
+            <div className="p-8 rounded-2xl bg-card border border-border/50 text-center shadow-sm hover:border-primary/30 transition-all">
+              <div className="w-28 h-28 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden border-2 border-primary/30 shadow-md">
+                <img
+                  src={mateusImg}
+                  alt="Mateus Perdigão - Consultor de Vendas"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+              <h3 className="font-heading font-bold text-xl text-foreground mb-1">
                 Mateus Perdigão
               </h3>
               <p className="text-muted-foreground mb-4">Consultor de Vendas</p>
               <a
-                href="https://wa.me/5585998308911"
+                href={`https://wa.me/5585998308911?text=${encodeURIComponent("Olá Mateus! Estou vindo pelo site da Fortal Auto e gostaria de mais informações.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={trackLead}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-whatsapp hover:bg-whatsapp-hover text-white font-medium transition-colors"
               >
                 Falar no WhatsApp
               </a>
             </div>
 
-            <div className="p-8 rounded-2xl bg-card border border-border/50 text-center">
-              <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden border-2 border-primary/20">
-                <img src="/igor-freitas.jpg" alt="Igor Freitas" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.removeAttribute('style'); }} />
-                <Users className="w-10 h-10 text-primary" style={{ display: 'none' }} />
+            <div className="p-8 rounded-2xl bg-card border border-border/50 text-center shadow-sm hover:border-primary/30 transition-all">
+              <div className="w-28 h-28 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden border-2 border-primary/30 shadow-md">
+                <img
+                  src={igorImg}
+                  alt="Igor Freitas - Consultor de Vendas"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+              <h3 className="font-heading font-bold text-xl text-foreground mb-1">
                 Igor Freitas
               </h3>
               <p className="text-muted-foreground mb-4">Consultor de Vendas</p>
               <a
-                href="https://wa.me/558599885601"
+                href={`https://wa.me/5585999885601?text=${encodeURIComponent("Olá Igor! Estou vindo pelo site da Fortal Auto e gostaria de mais informações.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={trackLead}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-whatsapp hover:bg-whatsapp-hover text-white font-medium transition-colors"
               >
                 Falar no WhatsApp

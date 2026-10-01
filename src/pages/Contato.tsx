@@ -6,18 +6,22 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import SectionTitle from "@/components/SectionTitle";
 import SEO from "@/components/SEO";
 import { trackLead } from "@/lib/trackLead";
+import mateusImg from "@/assets/Mateus.jpg";
+import igorImg from "@/assets/Igor.jpg";
 
 const Contato = () => {
   const contacts = [
     {
       name: "Mateus Perdigão",
       role: "Consultor de Vendas",
+      image: mateusImg,
       whatsapp: "https://wa.me/5585998308911?text=" + encodeURIComponent("Olá Mateus! Estou vindo pelo site da Fortal Auto e gostaria de mais informações."),
       phone: "(85) 99830-8911",
     },
     {
       name: "Igor Freitas",
       role: "Consultor de Vendas",
+      image: igorImg,
       whatsapp: "https://wa.me/5585999885601?text=" + encodeURIComponent("Olá Igor! Estou vindo pelo site da Fortal Auto e gostaria de mais informações."),
       phone: "(85) 99988-5601",
     },
@@ -51,14 +55,21 @@ const Contato = () => {
             {contacts.map((contact) => (
               <div
                 key={contact.name}
-                className="p-8 rounded-2xl bg-card border border-border/50"
+                className="p-8 rounded-2xl bg-card border border-border/50 text-center flex flex-col items-center shadow-sm hover:border-primary/30 transition-all"
               >
+                <div className="w-24 h-24 rounded-full bg-primary/10 overflow-hidden border-2 border-primary/30 shadow-md mb-4">
+                  <img
+                    src={contact.image}
+                    alt={contact.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="font-heading font-bold text-xl text-foreground mb-1">
                   {contact.name}
                 </h3>
                 <p className="text-muted-foreground mb-6">{contact.role}</p>
 
-                <div className="space-y-4">
+                <div className="space-y-4 w-full">
                   <Button
                     asChild
                     className="w-full bg-whatsapp hover:bg-whatsapp-hover text-white font-semibold gap-2 h-12"
@@ -74,8 +85,8 @@ const Contato = () => {
                     </a>
                   </Button>
 
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Phone className="w-5 h-5" />
+                  <div className="flex items-center justify-center gap-3 text-muted-foreground">
+                    <Phone className="w-5 h-5 text-primary" />
                     <span>{contact.phone}</span>
                   </div>
                 </div>

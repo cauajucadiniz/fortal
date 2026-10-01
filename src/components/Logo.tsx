@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import logoImage from "@/assets/logo-fortal-auto.png";
+import logoImage from "@/assets/Logo FortalAuto.png";
 
 interface LogoProps {
   className?: string;
@@ -8,9 +8,9 @@ interface LogoProps {
 
 const Logo = ({ className, size = "md" }: LogoProps) => {
   const sizeClasses = {
-    sm: "w-12 h-12",
-    md: "w-20 h-20",
-    lg: "w-32 h-32",
+    sm: "h-10 md:h-12 w-auto max-w-[130px]",
+    md: "h-14 md:h-16 w-auto max-w-[190px]",
+    lg: "h-24 md:h-32 w-auto max-w-[320px]",
   };
 
   return (
@@ -18,7 +18,7 @@ const Logo = ({ className, size = "md" }: LogoProps) => {
       <img
         src={logoImage}
         alt="Fortal Auto - Since 2022"
-        className={cn(sizeClasses[size], "object-contain")}
+        className={cn(sizeClasses[size], "object-contain drop-shadow-sm")}
       />
     </div>
   );
