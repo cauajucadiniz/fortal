@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react()].filter(Boolean),
+  assetsInclude: ["**/*.PNG", "**/*.JPG", "**/*.JPEG"],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -42,6 +42,33 @@ export interface Vehicle {
 
 const allVehicles: Vehicle[] = [
   {
+    id: "onix-joy-2020",
+    status: "active",
+    image: getVehicleImage("onix-joy-2020.jpeg"),
+    brand: "Chevrolet",
+    model: "Onix Joy 1.0",
+    year: "2020",
+    price: "R$ 58.900,00",
+    km: "94.000",
+    transmission: "Manual (6 Marchas)",
+    engine: "1.0",
+    color: "Prata",
+    whatsapp: "5585998308911",
+    highlights: [
+      "Completo",
+      "Som USB",
+      "Câmbio Manual de 06 Marchas",
+      "Motor 1.0",
+      "Pneus novos",
+      "94.000 km",
+      "Manual e chave reserva",
+      "Revisado",
+      "Garantia 03 meses",
+      "Avalio carro ou moto de entrada",
+      "Aceito financiamento",
+    ],
+  },
+  {
     id: "kwid-zen-2025",
     status: "active",
     image: getVehicleImage("Kwid 2025.jpeg"),
