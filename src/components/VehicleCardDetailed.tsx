@@ -81,15 +81,15 @@ const VehicleCardDetailed = ({
         </p>
 
         <div className="space-y-1.5 mb-5">
-          {highlights.slice(0, 4).map((highlight, index) => (
+          {(highlights || []).slice(0, 4).map((highlight, index) => (
             <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
               <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
               <span className="line-clamp-1">{highlight}</span>
             </div>
           ))}
-          {highlights.length > 4 && (
+          {(highlights || []).length > 4 && (
             <span className="text-xs text-muted-foreground/70">
-              +{highlights.length - 4} mais
+              +{(highlights || []).length - 4} mais
             </span>
           )}
         </div>

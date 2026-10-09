@@ -42,14 +42,18 @@ const Veiculos = () => {
   const vehicles = apiVehicles || staticVehicles;
 
   const bounds = useMemo(() => {
-    const prices = vehicles.map(getPriceNumber);
-    const years = vehicles.map(getYearNumber);
+    const prices = vehicles.map(getPriceNumber).filter((p) => p > 0);
+    const years = vehicles.map(getYearNumber).filter((y) => y > 0);
     const kms = vehicles.map(getKmNumber).filter((k) => k > 0);
+    const minP = prices.length ? Math.min(...prices) : 20000;
+    const maxP = prices.length ? Math.max(...prices) : 200000;
+    const minY = years.length ? Math.min(...years) : 2010;
+    const maxY = years.length ? Math.max(...years) : new Date().getFullYear();
     return {
-      priceMin: Math.floor(Math.min(...prices) / 1000) * 1000,
-      priceMax: Math.ceil(Math.max(...prices) / 1000) * 1000,
-      yearMin: Math.min(...years),
-      yearMax: Math.max(...years),
+      priceMin: Math.floor(minP / 1000) * 1000,
+      priceMax: Math.ceil(maxP / 1000) * 1000,
+      yearMin: minY,
+      yearMax: maxY,
       kmMax: kms.length ? Math.ceil(Math.max(...kms) / 10000) * 10000 : 200000,
     };
   }, [vehicles]);
