@@ -126,7 +126,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "hilux-sw4-2014",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("hilux-sw4-2014.jpeg"),
     brand: "Toyota",
     model: "Hilux SW4",
@@ -157,7 +157,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "grand-vitara-4x4-2013",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("grand-vitara-2013.jpeg"),
     brand: "Suzuki",
     model: "Grand Vitara 2.0 4x4",
@@ -188,7 +188,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "hilux-srv-2017",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("hilux-srv-2017.jpeg"),
     brand: "Toyota",
     model: "Hilux SRV",
@@ -246,7 +246,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "polo-msi-16-2018",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("polo-msi-16-2018.jpeg"),
     brand: "Volkswagen",
     model: "Polo MSI 1.6",
