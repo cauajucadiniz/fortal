@@ -21,6 +21,8 @@ const BODY_MAP: Record<string, BodyStyle> = {
   "gol-trendline-2017": "Hatch",
   "gol-g7-2023": "Hatch",
   "mobi-like-2028": "Hatch",
+  "corolla-xei-20-flex-2021-2022": "Sedã",
+  "sandero-stepway-16-2015": "Hatch",
   "corolla-xei-2019": "Sedã",
   "tcross-comfortline-2026": "SUV",
   "renegade-longitude-t270-2024": "SUV",
@@ -49,7 +51,24 @@ export const getPriceNumber = (v: Vehicle): number =>
 export const getKmNumber = (v: Vehicle): number =>
   v.km ? Number(v.km.replace(/\D/g, "")) || 0 : 0;
 
-export const getYearNumber = (v: Vehicle): number => Number(v.year) || 0;
+export const getYearNumber = (v: Vehicle): number => {
+  if (!v.year) return 0;
+  const matches = v.year.match(/\b(19\d\d|20\d\d)\b/g);
+  if (matches && matches.length > 0) {
+    return Number(matches[matches.length - 1]);
+  }
+  return Number(v.year.replace(/\D/g, "")) || 0;
+};
+
+export const getVehicleYears = (v: Vehicle): number[] => {
+  if (!v.year) return [];
+  const matches = v.year.match(/\b(19\d\d|20\d\d)\b/g);
+  if (matches && matches.length > 0) {
+    return matches.map(Number);
+  }
+  const n = Number(v.year.replace(/\D/g, ""));
+  return n ? [n] : [];
+};
 
 export const normalizeTransmission = (t: string): "Automático" | "Manual" | "CVT" => {
   const s = t.toLowerCase();
@@ -100,8 +119,9 @@ export const applyFilters = (vehicles: Vehicle[], f: Filters): Vehicle[] => {
     if (f.bodyStyles.length && !f.bodyStyles.includes(getBodyStyle(v))) return false;
     const price = getPriceNumber(v);
     if (price < f.priceMin || price > f.priceMax) return false;
-    const year = getYearNumber(v);
-    if (year < f.yearMin || year > f.yearMax) return false;
+    const vYears = getVehicleYears(v);
+    if (vYears.length > 0 && !vYears.some((y) => y >= f.yearMin && y <= f.yearMax))
+      return false;
     if (f.transmission !== "Todos" && normalizeTransmission(v.transmission) !== f.transmission)
       return false;
     const km = getKmNumber(v);
