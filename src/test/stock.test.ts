@@ -3,15 +3,17 @@ import { vehicles, soldVehicles, allVehicles } from "@/data/vehicles";
 import { applyFilters, getBodyStyle } from "@/lib/vehicleFilters";
 
 describe("Vehicle Stock Management", () => {
-  it("should mark Corolla 2021/2022 and T-Cross as sold", () => {
+  it("should mark Corolla 2021/2022, T-Cross and Gol 2023 as sold", () => {
     const activeIds = vehicles.map((v) => v.id);
     const soldIds = soldVehicles.map((v) => v.id);
 
     expect(activeIds).not.toContain("corolla-xei-20-flex-2021-2022");
     expect(activeIds).not.toContain("tcross-comfortline-2026");
+    expect(activeIds).not.toContain("gol-g7-2023");
 
     expect(soldIds).toContain("corolla-xei-20-flex-2021-2022");
     expect(soldIds).toContain("tcross-comfortline-2026");
+    expect(soldIds).toContain("gol-g7-2023");
   });
 
   it("should have Spin Activ 2020, Onix Joy 2020 and HB20 Comfort 2016 active at top of inventory", () => {

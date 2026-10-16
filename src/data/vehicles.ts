@@ -707,6 +707,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "gol-g7-2023",
+    status: "sold",
     image: getVehicleImage("gol-g7-2023.jpg"),
     brand: "Volkswagen",
     model: "Gol G7 1.0",
