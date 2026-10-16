@@ -23,6 +23,7 @@ const BODY_MAP: Record<string, BodyStyle> = {
   "mobi-like-2028": "Hatch",
   "corolla-xei-20-flex-2021-2022": "Sedã",
   "sandero-stepway-16-2015": "Hatch",
+  "spin-activ-2020": "Utilitário",
   "onix-joy-2020": "Hatch",
   "hb20-comfort-2016": "Hatch",
   "corolla-xei-2019": "Sedã",
