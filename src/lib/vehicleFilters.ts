@@ -23,6 +23,8 @@ const BODY_MAP: Record<string, BodyStyle> = {
   "mobi-like-2028": "Hatch",
   "corolla-xei-20-flex-2021-2022": "Sedã",
   "sandero-stepway-16-2015": "Hatch",
+  "onix-joy-2020": "Hatch",
+  "hb20-comfort-2016": "Hatch",
   "corolla-xei-2019": "Sedã",
   "tcross-comfortline-2026": "SUV",
   "renegade-longitude-t270-2024": "SUV",
@@ -33,8 +35,15 @@ const FUEL_MAP: Record<string, Fuel> = {
   "hilux-sw4-srx-2017": "Diesel",
 };
 
-export const getBodyStyle = (v: Vehicle): BodyStyle =>
-  BODY_MAP[v.id] ?? "Sedã";
+export const getBodyStyle = (v: Vehicle): BodyStyle => {
+  if (BODY_MAP[v.id]) return BODY_MAP[v.id];
+  const name = `${v.brand} ${v.model}`.toLowerCase();
+  if (name.includes("onix") || name.includes("hb20") || name.includes("gol") || name.includes("polo") || name.includes("argo") || name.includes("mobi") || name.includes("sandero") || name.includes("kwid")) return "Hatch";
+  if (name.includes("t-cross") || name.includes("tcross") || name.includes("tracker") || name.includes("kicks") || name.includes("renegade") || name.includes("creta") || name.includes("compass") || name.includes("sw4") || name.includes("duster") || name.includes("nivus")) return "SUV";
+  if (name.includes("spin") || name.includes("jimny")) return "Utilitário";
+  if (name.includes("strada") || name.includes("saveiro") || name.includes("toro") || name.includes("hilux") || name.includes("s10") || name.includes("ranger")) return "Picape";
+  return "Sedã";
+};
 
 export const getFuel = (v: Vehicle): Fuel => {
   if (FUEL_MAP[v.id]) return FUEL_MAP[v.id];
