@@ -38,7 +38,17 @@ export interface Vehicle {
   whatsapp: string;
   /** "sold" mantém o veículo no arquivo, fora do estoque exibido. Padrão: "active". */
   status?: VehicleStatus;
+  /** Fotos extras por URL (opcional). Fotos enviadas como src/assets/images/<id>-01.jpg, -02.jpg... entram sozinhas. */
+  gallery?: string[];
 }
+
+/** Todas as fotos do veículo: arquivos src/assets/images/<id>-NN.(jpg|jpeg|png|webp) em ordem + gallery. Sem fotos extras, usa a foto principal. */
+export const getVehicleGallery = (v: Vehicle): string[] => {
+  const re = new RegExp(`^/src/assets/images/${v.id}-\\d+\\.(jpe?g|png|webp)$`, "i");
+  const found = Object.keys(images).filter((k) => re.test(k)).sort().map((k) => images[k] as string);
+  const list = [...found, ...(v.gallery || [])];
+  return list.length ? list : [v.image];
+};
 
 const allVehicles: Vehicle[] = [
   {

@@ -1,8 +1,12 @@
-import { MessageCircle, Calendar, Gauge, Fuel, Settings, Check } from "lucide-react";
+import { Link } from "react-router-dom";
+import { MessageCircle, Calendar, Gauge, Fuel, Settings, Check, Images } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackLead } from "@/lib/trackLead";
+import { getVehicleGallery, type Vehicle } from "@/data/vehicles";
 
 interface VehicleCardDetailedProps {
+  id: string;
+  gallery?: string[];
   image: string;
   brand: string;
   model: string;
@@ -16,6 +20,8 @@ interface VehicleCardDetailedProps {
 }
 
 const VehicleCardDetailed = ({
+  id,
+  gallery,
   image,
   brand,
   model,
@@ -29,11 +35,13 @@ const VehicleCardDetailed = ({
 }: VehicleCardDetailedProps) => {
   const whatsappMessage = `Olá! Estou vindo pelo site da Fortal Auto e tenho interesse no ${brand} ${model} ${year}. Poderia me passar mais informações?`;
   const whatsappLink = `https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+  const detailLink = `/veiculos/${id}`;
+  const photoCount = getVehicleGallery({ id, image, gallery } as Vehicle).length;
 
   return (
     <div className="vehicle-card group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-300">
       {/* Image Container */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-secondary/30">
+      <Link to={detailLink} aria-label={`Ver fotos e detalhes do ${brand} ${model} ${year}`} className="block relative aspect-[3/4] overflow-hidden bg-secondary/30">
         <img
           src={image}
           alt={`${brand} ${model} ${year}`}
@@ -45,12 +53,17 @@ const VehicleCardDetailed = ({
         <div className="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border/50">
           <span className="text-xs font-semibold text-foreground">{brand}</span>
         </div>
-      </div>
+        {photoCount > 1 && (
+          <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-sm text-xs font-semibold">
+            <Images className="w-3.5 h-3.5" /> {photoCount} fotos
+          </div>
+        )}
+      </Link>
 
       {/* Content */}
       <div className="p-4 md:p-5">
         <h3 className="font-heading font-bold text-foreground text-lg md:text-xl mb-2 line-clamp-1">
-          {model}
+          <Link to={detailLink} className="hover:text-primary transition-colors">{model}</Link>
         </h3>
         
         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-4">
@@ -94,6 +107,12 @@ const VehicleCardDetailed = ({
           )}
         </div>
 
+        <Button asChild variant="outline" className="w-full font-semibold gap-2 h-11 mb-2">
+          <Link to={detailLink}>
+            <Images className="w-4 h-4" />
+            Ver fotos e detalhes
+          </Link>
+        </Button>
         <Button
           asChild
           className="w-full bg-whatsapp hover:bg-whatsapp-hover text-white font-semibold gap-2 h-12"

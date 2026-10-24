@@ -8,9 +8,7 @@ interface SEOProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const SITE_URL = "https://fortal-auto-vibe.lovable.app";
-const DEFAULT_IMAGE =
-  "https://storage.googleapis.com/gpt-engineer-file-uploads/Re87gstFo7fAv0CrzeHO3erHfP53/social-images/social-1774174643260-perfil_fortalauto.webp";
+import { SITE_URL, DEFAULT_OG_IMAGE as DEFAULT_IMAGE } from "@/lib/site";
 
 const SEO = ({ title, description, path, image = DEFAULT_IMAGE, jsonLd }: SEOProps) => {
   const url = `${SITE_URL}${path}`;

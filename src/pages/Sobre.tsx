@@ -8,8 +8,10 @@ import Logo from "@/components/Logo";
 import mateusImg from "@/assets/Mateus.jpg";
 import igorImg from "@/assets/Igor.jpg";
 import { trackLead } from "@/lib/trackLead";
+import { useInstagramFollowers } from "@/hooks/useInstagramFollowers";
 
 const Sobre = () => {
+  const followers = useInstagramFollowers();
   const values = [
     {
       icon: Shield,
@@ -93,7 +95,7 @@ const Sobre = () => {
                   <p className="text-muted-foreground text-sm">Veículos vendidos</p>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-secondary/50 border border-border/30">
-                  <p className="font-heading font-bold text-2xl text-primary">5.5k+</p>
+                  <p className="font-heading font-bold text-2xl text-primary">{followers}</p>
                   <p className="text-muted-foreground text-sm">Seguidores</p>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-secondary/50 border border-border/30">
