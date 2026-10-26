@@ -5,6 +5,12 @@
 
 const images = import.meta.glob(['/src/assets/*.{png,jpg,jpeg,svg,webp}', '/src/assets/images/*.{png,jpg,jpeg,svg,webp}'], { eager: true, import: 'default' });
 
+// Fotos da galeria (<id>-01.jpg, <id>-02.jpg...) aceitas em src/assets, src/assets/images ou na raiz do projeto (upload padrão do AI Studio)
+const galleryImages = {
+  ...import.meta.glob('/*-[0-9][0-9].{png,jpg,jpeg,webp,PNG,JPG,JPEG}', { eager: true, import: 'default' }),
+  ...import.meta.glob(['/src/assets/*-[0-9][0-9].{png,jpg,jpeg,webp}', '/src/assets/images/*-[0-9][0-9].{png,jpg,jpeg,webp}'], { eager: true, import: 'default' }),
+} as Record<string, string>;
+
 export const getVehicleImage = (filename: string) => {
   const directPath = `/src/assets/${filename}`;
   if (images[directPath]) return images[directPath] as string;
@@ -15,6 +21,7 @@ export const getVehicleImage = (filename: string) => {
   if (images[lower]) return images[lower] as string;
   const inImagesLower = `/src/assets/images/${filename.toLowerCase()}`;
   if (images[inImagesLower]) return images[inImagesLower] as string;
+  if (galleryImages[`/${filename}`]) return galleryImages[`/${filename}`];
 
   return "/placeholder.svg";
 };
@@ -42,10 +49,12 @@ export interface Vehicle {
   gallery?: string[];
 }
 
-/** Todas as fotos do veículo: arquivos src/assets/<id>-NN ou src/assets/images/<id>-NN.(jpg|jpeg|png|webp) em ordem + gallery. Sem fotos extras, usa a foto principal. */
+/** Todas as fotos do veículo: arquivos <id>-NN na raiz, em src/assets ou src/assets/images.(jpg|jpeg|png|webp) em ordem + gallery. Sem fotos extras, usa a foto principal. */
 export const getVehicleGallery = (v: Vehicle): string[] => {
-  const re = new RegExp(`^/src/assets/(images/)?${v.id}-\\d+\\.(jpe?g|png|webp)$`, "i");
-  const found = Object.keys(images).filter((k) => re.test(k)).sort().map((k) => images[k] as string);
+  const re = new RegExp(`^/(src/assets/(images/)?)?${v.id}-\\d+\\.(jpe?g|png|webp)$`, "i");
+  const byFile = new Map<string, string>();
+  Object.keys(galleryImages).filter((k) => re.test(k)).forEach((k) => byFile.set(k.split("/").pop()!.toLowerCase(), galleryImages[k]));
+  const found = [...byFile.keys()].sort().map((k) => byFile.get(k)!);
   const list = [...found, ...(v.gallery || [])];
   return list.length ? list : [v.image];
 };
