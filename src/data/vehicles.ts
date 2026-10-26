@@ -38,13 +38,13 @@ export interface Vehicle {
   whatsapp: string;
   /** "sold" mantém o veículo no arquivo, fora do estoque exibido. Padrão: "active". */
   status?: VehicleStatus;
-  /** Fotos extras por URL (opcional). Fotos enviadas como src/assets/images/<id>-01.jpg, -02.jpg... entram sozinhas. */
+  /** Fotos extras por URL (opcional). Fotos enviadas como src/assets/<id>-01.jpg (ou src/assets/images/), -02.jpg... entram sozinhas. */
   gallery?: string[];
 }
 
-/** Todas as fotos do veículo: arquivos src/assets/images/<id>-NN.(jpg|jpeg|png|webp) em ordem + gallery. Sem fotos extras, usa a foto principal. */
+/** Todas as fotos do veículo: arquivos src/assets/<id>-NN ou src/assets/images/<id>-NN.(jpg|jpeg|png|webp) em ordem + gallery. Sem fotos extras, usa a foto principal. */
 export const getVehicleGallery = (v: Vehicle): string[] => {
-  const re = new RegExp(`^/src/assets/images/${v.id}-\\d+\\.(jpe?g|png|webp)$`, "i");
+  const re = new RegExp(`^/src/assets/(images/)?${v.id}-\\d+\\.(jpe?g|png|webp)$`, "i");
   const found = Object.keys(images).filter((k) => re.test(k)).sort().map((k) => images[k] as string);
   const list = [...found, ...(v.gallery || [])];
   return list.length ? list : [v.image];
@@ -95,7 +95,7 @@ const allVehicles: Vehicle[] = [
     transmission: "Manual (6 Marchas)",
     engine: "1.0",
     color: "Prata",
-    whatsapp: "5585998308911",
+    whatsapp: "5585999885601",
     highlights: [
       "Completo",
       "Som USB",
@@ -136,6 +136,32 @@ const allVehicles: Vehicle[] = [
       "Som integrado com USB",
       "Avalio carro ou moto de entrada",
       "Aceito financiamento",
+    ],
+  },
+  {
+    id: "compass-longitude-2020",
+    status: "active",
+    image: getVehicleImage("compass-longitude-2020-01.jpg"),
+    brand: "Jeep",
+    model: "Compass Longitude 2.0 Diesel 4x4",
+    year: "2020",
+    price: "R$ 105.900,00",
+    km: "73.000",
+    transmission: "Automático",
+    engine: "2.0 Diesel",
+    traction: "4x4",
+    whatsapp: "5585999885601",
+    highlights: [
+      "Tração 4x4",
+      "Revisões na concessionária",
+      "Apenas 73.000 km rodados",
+      "04 Pneus novos",
+      "Bancos em couro",
+      "Todo revisado",
+      "Pack Premium",
+      "Garantia 90 dias",
+      "Avalio carro ou moto de entrada",
+      "Aceito financiamento"
     ],
   },
   {
@@ -408,7 +434,7 @@ const allVehicles: Vehicle[] = [
     km: "96.000",
     transmission: "Manual",
     engine: "1.8 Flex",
-    whatsapp: "5585998308911",
+    whatsapp: "5585999885601",
     highlights: [
       "05 Lugares",
       "04 Pneus novos",
