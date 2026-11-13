@@ -94,7 +94,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "onix-joy-2020",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("onix-joy-2020.jpeg"),
     brand: "Chevrolet",
     model: "Onix Joy 1.0",
@@ -149,7 +149,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "compass-longitude-2020",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("compass-longitude-2020-01.jpg"),
     brand: "Jeep",
     model: "Compass Longitude 2.0 Diesel 4x4",
@@ -175,7 +175,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "honda-fit-ex-2016",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("honda-fit-ex-2016-01.jpg"),
     brand: "Honda",
     model: "Fit EX 1.5 Aut.",
@@ -205,7 +205,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "civic-lxr-2014",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("civic-lxr-2014-01.jpg"),
     brand: "Honda",
     model: "Civic LXR 2.0 Aut.",
@@ -259,7 +259,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "corolla-seg-2009",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("corolla-seg-2009-01.jpg"),
     brand: "Toyota",
     model: "Corolla SEG 1.8 Aut.",
@@ -496,7 +496,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "polo-10-track-2025",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("polo-10-track-2025.jpeg"),
     brand: "Volkswagen",
     model: "Polo Track 1.0",
@@ -624,6 +624,7 @@ const allVehicles: Vehicle[] = [
 
   {
     id: "argo-drive-2025",
+    status: "sold",
     image: getVehicleImage("argo-drive-2025.jpeg"),
     brand: "Fiat",
     model: "Argo Drive",
@@ -728,6 +729,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "gol-trendline-2017-black",
+    status: "sold",
     image: getVehicleImage("gol-trendline-2017-black.jpeg"),
     brand: "Volkswagen",
     model: "Gol Trendline",
@@ -837,6 +839,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "onix-ltz-2018",
+    status: "sold",
     image: getVehicleImage("onix-ltz-2018.jpg"),
     brand: "Chevrolet",
     model: "Onix 1.4 LTZ",
@@ -1051,6 +1054,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "jimny-sport-2016",
+    status: "sold",
     image: getVehicleImage("jimny-sport-2016.jpg"),
     brand: "Suzuki",
     model: "Jimny Sport 4x4",
@@ -1098,7 +1102,8 @@ const allVehicles: Vehicle[] = [
     ],
   },
   {
-    id: "gol-trendline-2017",
+    id: "gol-trendline-10-2017",
+    status: "sold",
     image: getVehicleImage("gol-trendline-2017.jpg"),
     brand: "Volkswagen",
     model: "Gol Trendline",
