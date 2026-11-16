@@ -659,7 +659,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "spin-lt-18-2013",
-    status: "active",
+    status: "sold",
     image: getVehicleImage("spin-lt-18-2013.jpeg"),
     brand: "Chevrolet",
     model: "Spin LT",
@@ -842,7 +842,7 @@ const allVehicles: Vehicle[] = [
   },
   {
     id: "gol-trendline-2017-black",
-    status: "sold",
+    status: "active",
     image: getVehicleImage("gol-trendline-2017-black.jpeg"),
     brand: "Volkswagen",
     model: "Gol Trendline",
